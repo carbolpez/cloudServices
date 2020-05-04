@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var OperatorMetadataSchema = new mongoose.Schema({
      //_id: {type: Number},
      account: {type: String, unique: true},
+     name: {type: String},
      postalAddress: {type: String},
      email: {type: String},
      company: {type: String},

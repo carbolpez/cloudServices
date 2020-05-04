@@ -9,6 +9,7 @@ var operatorMetadataDAO = {
 		var operatorMetadata = new OperatorMetadata();
 		//operatorMetadata._id = operatorMetadata_in._id;
 		operatorMetadata.account = operatorMetadata_in.account,
+		operatorMetadata.name = operatorMetadata_in.name,
 		operatorMetadata.postalAddress = operatorMetadata_in.postalAddress;
 		operatorMetadata.company = operatorMetadata_in.company;
 		operatorMetadata.email = operatorMetadata_in.email;
@@ -32,7 +33,17 @@ var operatorMetadataDAO = {
 		    return done(null, { retCode: 0 });
 		})
 	},
-
+	findAll: function(done){
+		OperatorMetadata.find({}).exec(function(err, operatorMetadata){
+			if (err)
+			{
+				return done(err, { retCode: 1 , errorMessage: err});
+			}
+			else {
+				return done(null, { retCode: 0, operatorMetadata: operatorMetadata });
+			}
+		})
+	},
 	findById: function(id, done){
 		OperatorMetadata.findById(id).exec(function(err, operatorMetadata){
 			if (err)
