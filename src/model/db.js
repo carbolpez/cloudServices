@@ -3,13 +3,6 @@ var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 var model = {
-    role : {
-        dto: require('./dto/Role').role
-    },
-    user : {
-        dto: require('./dto/User').user,
-        dao: require('./dao/UserDAO')
-    },
     operatorMetadata : {
         dto: require('./dto/OperatorMetadata').operatorMetadata,
         dao: require('./dao/OperatorMetadataDAO')
@@ -19,6 +12,7 @@ var model = {
     },
     image : {
         dto: require('./dto/Image').image,
+        dao: require('./dao/ImageDAO')
     }
 }
 module.exports.model = model;
