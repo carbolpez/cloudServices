@@ -22,7 +22,7 @@ var imageDAO = {
 	},
 	findImages: function(query, done){
 		console.log("ImageDAO.findImages --> query: " + JSON.stringify(query));
-		Image.find(query).exec(function (err, ret) {
+		Image.find(query,{img:0}).exec(function (err, ret) {
 			if (err){
 				return done(err);
 			}
