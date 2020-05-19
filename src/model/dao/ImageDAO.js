@@ -8,7 +8,7 @@ var imageDAO = {
 		console.log("ImageDAO.addTempImage --> " + JSON.stringify(image_in));
 		var image = new Image();
 		image.img.data = image_in.buffer;
-		image.img.contentType = 'image/png';
+		image.img.contentType = image_in.mimetype;
 		image.size = image_in.size;
 		image.trackMetadata = image_in.metadata;
 

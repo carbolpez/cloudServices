@@ -39,21 +39,19 @@ var trackService = {
       try {
         console.log("addTrackImages --> Iniciando. req.headers: " + JSON.stringify(req.headers));
         console.log("addTrackImages --> Iniciando. req.body: " + JSON.stringify(req.body));
-        let auxImages = req.files;//req.files
-        auxImage.metadata=req.body.metadata;
-        if (auxImage != null)
+        if (req.body.metadata)
         {
+          for(var i=0;i<req.files.length; i++){
+            var auxImage = req.files[i];
+            auxImage.metadata = req.body.metadata;
             model.image.dao.imageDAO.addTrackImage(auxImage, function(err, response){
-              if (err)
-              {
+              if (err){
                 console.log("TrackService.addTrackImages --> err: " + err);
                 return res.json({retCode:1, errorMessage: err})
               }
-              else {
-                return res.json(response);
-              }
-
             });
+          }
+          return res.json({retCode:0});
         }
         else {
           return res.json({ retCode: 1, errorMessage: "Invalid params" })
