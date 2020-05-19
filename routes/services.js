@@ -11,7 +11,7 @@ var RegistryService = require('../src/services/RegistryService.js').registryServ
 router.use('/registry/registerOperator', RegistryService.registerOperator);
 router.use('/registry/findRegisters', RegistryService.findRegisters);
 router.use('/track/addTrackImage', upload.single('image'), TrackService.addTrackImage);
-router.use('/track/addTrackImages', upload.array('images', 3), TrackService.addTrackImages);
+router.use('/track/addTrackImages', upload.array('images', 20), TrackService.addTrackImages);
 router.use('/track/getImageList', TrackService.getImageList);
 router.use('/track/getImage', TrackService.getImage)
 module.exports = router;
