@@ -37,6 +37,14 @@ var imageDAO = {
 			}
 			return done(null,ret);
 		});
+	},
+	deleteAll: function(done){
+		Image.deleteMany({}, function (err) {
+		    if (err) {
+		        return done(err, { retCode: 1 });
+		    }
+		    return done(null, { retCode: 0 });
+		})
 	}
 }//var
 
